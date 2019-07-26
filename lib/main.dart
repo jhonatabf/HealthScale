@@ -15,13 +15,23 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    var scaffold = Scaffold(
       appBar: AppBar(
-        title: Text("Health Scale",),
-        backgroundColor: Colors.cyan[400],
+        title: Text("Health Scale",
+          style: TextStyle(
+              color: Colors.cyan[400],),),
+        backgroundColor: Colors.white,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.home), onPressed: () {},)
+          IconButton(icon: Icon(Icons.home, color: Colors.grey[400],), onPressed: () {},)
+        ],),
+        backgroundColor: Colors.grey[100],
+        body: Column(children: <Widget>[
+          Padding(padding: EdgeInsets.all(8.0),),
+          Text("Escala MEWS", 
+            style: TextStyle(
+              color: Colors.grey[800],),),
         ],),
     );
+    return scaffold;
   }
 }
