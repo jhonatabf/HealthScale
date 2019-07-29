@@ -45,7 +45,7 @@ Widget base() {
             padding: const EdgeInsets.all(10),
             color: Colors.green[500],
             child: const Center(
-                child: Text('Estamos tentando manter o aplicativo sem propaganda ou qualquer outro tipo de distração, o seu foco é a saúde então pedimos a sua ajuda para mante-lo assim e melhorar a aplicação ainda mais.',
+                child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at scelerisque nisi, vitae convallis diam. Quisque augue mi, vestibulum at fringilla vitae, feugiat non libero. Proin dictum commodo massa',
                 style: TextStyle(color: Colors.white), textAlign: TextAlign.justify,),
                 ),
           ),
@@ -66,7 +66,22 @@ Widget base() {
             ),),
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
             height: 60,
-            child: const Center(child: Text('Escala Braden')),
+            child: Row(
+              children: <Widget>[
+                    Icon(
+                      Icons.arrow_right,
+                      color: Colors.cyan[900],
+                      size: 30.0,
+                ),
+                 Container(
+                      child: Text("Escala Braden"),
+                ),
+                Container(
+                      child: Text("In eu erat id mi facilisis consectetur"),
+                ),
+              ],
+            ),
+            
           ),
           Container(
             decoration: const BoxDecoration(
