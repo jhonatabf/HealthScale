@@ -68,20 +68,21 @@ Widget base() {
             height: 60,
             child: Row(
               children: <Widget>[
-                    Icon(
+                Icon(
                       Icons.arrow_right,
-                      color: Colors.cyan[900],
-                      size: 30.0,
+                      color: Colors.red[800],
+                      size: 40.0,
                 ),
-                 Container(
-                      child: Text("Escala Braden"),
-                ),
-                Container(
-                      child: Text("In eu erat id mi facilisis consectetur"),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text('Escala Braden', style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold)),
+                    Text('Lorem ipsum dolor sit amet...', style: TextStyle(color: Colors.grey[500]),),
+                  ],
                 ),
               ],
             ),
-            
           ),
           Container(
             decoration: const BoxDecoration(
@@ -90,7 +91,48 @@ Widget base() {
             ),),
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
             height: 60,
-            child: const Center(child: Text('Escala MEWS')),
+            child: Row(
+              children: <Widget>[
+                    Icon(
+                     Icons.arrow_right,
+                      color: Colors.yellow[800],
+                      size: 40.0,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text('Escala MEWS', style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold)),
+                    Text('Lorem ipsum dolor sit amet...', style: TextStyle(color: Colors.grey[500]),),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            decoration: const BoxDecoration(
+            border: Border(
+              bottom: BorderSide(width: 1.0, color: Color(0xFFFFDDDDDD),),
+            ),),
+            margin: const EdgeInsets.fromLTRB(0, 0, 0, 5),
+            height: 60,
+            child: Row(
+              children: <Widget>[
+                    Icon(
+                      Icons.arrow_right,
+                      color: Colors.green[800],
+                      size: 40.0,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text('Escala TEV', style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold)),
+                    Text('Lorem ipsum dolor sit amet...', style: TextStyle(color: Colors.grey[500]),),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
 
