@@ -20,7 +20,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final titulos = ['Braden', 'Braden Q', 'ECA (SCP)', 'Flebite', 'MEWS', 'NRS-2002', 'PEWS', 'TISS-28'];
   final subtitulos = ['Risco para Úlcera por Pressão', 'Risco para Úlcera por Pressão Pediátrico', 'Sistema de Classificação de Pacientes', 'Escala de Classificação de Flebite', 'Escore Alerta Precose', 'Protocolo de Risco Nutricional', 'Escore Alerta Precose Pediátrico', 'Therapeutic Intervention Scoring'];
-  final coresincone = [Colors.orange, Colors.pink, Colors.teal, Colors.brown, Colors.cyan, Colors.green, Colors.purple, Colors.yellow];
+  final coresincone = [Colors.orange, Colors.red, Colors.teal, Colors.brown, Colors.cyan, Colors.green, Colors.purple, Colors.pink[200]];
   @override
   Widget build(BuildContext context) {
     var scaffold = Scaffold(
@@ -85,6 +85,12 @@ class _HomeState extends State<Home> {
               bottom: BorderSide(width: 1.0, color: Color(0xFFFFDDDDDD),),
             ),),
             child: ListTile(
+              onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => braden()),
+            );
+          },
               leading: Icon(
                 Icons.content_copy,
                 color: coresincone[index],
@@ -101,6 +107,25 @@ class _HomeState extends State<Home> {
           },
         ),),
       ],
+    );
+  }
+
+  Widget braden(){
+    return Container(
+          alignment: Alignment.topLeft,
+          padding: const EdgeInsets.fromLTRB(14, 20, 12, 5),
+          child: Text(
+            "Escala Braden",
+            style: TextStyle(color: Colors.grey[600]),
+          ),
+          decoration: const BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                width: 1.0,
+                color: Color(0xFFFFDDDDDD),
+              ),
+            ),
+          ),
     );
   }
 }
