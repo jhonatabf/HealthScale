@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import './scales.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -18,170 +19,139 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final titulos = [
-    'Braden',
-    'Braden Q',
-    'ECA (SCP)',
-    'Flebite',
-    'MEWS',
-    'NRS-2002',
-    'PEWS',
-    'TISS-28'
-  ];
-  final subtitulos = [
-    'Risco para Úlcera por Pressão',
-    'Risco para Úlcera por Pressão Pediátrico',
-    'Sistema de Classificação de Pacientes',
-    'Escala de Classificação de Flebite',
-    'Escore Alerta Precose',
-    'Protocolo de Risco Nutricional',
-    'Escore Alerta Precose Pediátrico',
-    'Therapeutic Intervention Scoring'
-  ];
-  final coresincone = [
-    Colors.orange,
-    Colors.red,
-    Colors.teal,
-    Colors.brown,
-    Colors.cyan,
-    Colors.green,
-    Colors.purple,
-    Colors.pink[200]
-  ];
-  final paginas = [
-    'braden',
-    'bradenq',
-    'eca',
-    'frebite',
-    'mews',
-    'nrs',
-    'pews',
-    'tiss'
-  ];
-  @override
-  Widget build(BuildContext context) {
-    var scaffold = Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Health Scale",
-          style: TextStyle(
-            color: Colors.grey[700],
-          ),
-        ),
-        backgroundColor: Colors.white,
-        //actions: <Widget>[
-        //  IconButton(icon: Icon(Icons.home, color: Colors.grey[400],), onPressed: () {},)
-        //],
-      ),
-      backgroundColor: Colors.grey[100],
-      body: base(),
-    );
-    return scaffold;
-  }
+  
+ String dropdownValue = 'Baixo';
 
-  Widget base() {
-    return Column(
-      children: <Widget>[
-        Container(
-          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          padding: const EdgeInsets.all(10),
-          color: Colors.green[500],
-          child: const Center(
-            child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at scelerisque nisi, vitae convallis diam. Quisque augue mi, vestibulum at fringilla vitae, feugiat non libero. Proin dictum commodo massa',
-              style: TextStyle(color: Colors.white),
-              textAlign: TextAlign.justify,
+    @override
+    Widget build(BuildContext context) {
+      var scaffold = Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Health Scale",
+            style: TextStyle(
+              color: Colors.grey[700],
             ),
           ),
+          backgroundColor: Colors.white,
+          //actions: <Widget>[
+          //  IconButton(icon: Icon(Icons.question_answer, color: Colors.grey[400],), onPressed: () {},)
+          //],
         ),
-        Container(
-          alignment: Alignment.topLeft,
-          padding: const EdgeInsets.fromLTRB(14, 20, 12, 5),
-          child: Text(
-            "ESCALAS DISPONÍVEIS",
-            style: TextStyle(color: Colors.grey[600]),
-          ),
-          decoration: const BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                width: 1.0,
-                color: Color(0xFFFFDDDDDD),
+        backgroundColor: Colors.grey[100],
+        body: base(),
+      );
+      return scaffold;
+    }
+  
+    Widget base() {
+      return Column(
+        children: <Widget>[
+          Container(
+            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            padding: const EdgeInsets.all(10),
+            color: Colors.green[500],
+            child: const Center(
+              child: Text(
+                'Gostou do nosso APP? Temos a intenção de deixa-lo ainda melhor com novas escalas! Para você ajudar é bem simples, basta baixar e indicar aos seus amigos e o melhor é que não se paga nada por isso.',
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.justify,
               ),
             ),
           ),
-        ),
-        Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: titulos.length,
-            itemBuilder: (context, index) {
-              return Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      width: 1.0,
-                      color: Color(0xFFFFDDDDDD),
+          Container(
+            alignment: Alignment.topLeft,
+            padding: const EdgeInsets.fromLTRB(14, 20, 12, 5),
+            child: Text(
+              "ESCALAS DISPONÍVEIS",
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  width: 1.0,
+                  color: Color(0xFFFFDDDDDD),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: titulos.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        width: 1.0,
+                        color: Color(0xFFFFDDDDDD),
+                      ),
                     ),
                   ),
-                ),
-                child: ListTile(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => escalas(paginas[index])),
-                    );
-                  },
-                  leading: Icon(
-                    Icons.content_copy,
-                    color: coresincone[index],
-                    size: 30.0,
+                  child: ListTile(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => escalas(paginas[index], coresincone[index], titulos[index], descricoes[index])),
+                      );
+                    },
+                    leading: Icon(
+                      Icons.content_copy,
+                      color: coresincone[index],
+                      size: 30.0,
+                    ),
+                    title: Text(titulos[index].toString(),
+                        style: TextStyle(
+                            color: Colors.grey[600],
+                            fontWeight: FontWeight.bold)),
+                    subtitle: Text(
+                      subtitulos[index].toString(),
+                      style: TextStyle(color: Colors.grey[500]),
+                    ),
                   ),
-                  title: Text(titulos[index].toString(),
-                      style: TextStyle(
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.bold)),
-                  subtitle: Text(
-                    subtitulos[index].toString(),
-                    style: TextStyle(color: Colors.grey[500]),
-                  ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
-        ),
-      ],
-    );
-  }
-
-  Widget escalas(escala) {
-    var scaffold = Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Health Scale",
-          style: TextStyle(
-            color: Colors.grey[700],
-          ),
-        ),
-        backgroundColor: Colors.white,
-        actions: <Widget>[
-          IconButton(icon: Icon(Icons.home, color: Colors.grey[400],), onPressed: () {},)
         ],
-      ),
-      backgroundColor: Colors.grey[100],
-      body: pages(escala),
-    );
-    return scaffold;
-  }
+      );
+    }
 
-Widget pages(escala){
-  if(escala == 'bradenq'){
-    return Container(
+Widget escalas(escala, corBarra, titulo, descricao) {
+  var scaffold = Scaffold(
+    appBar: AppBar(
+      title: Text(
+        "Health Scale - " + titulo,
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
+      backgroundColor: corBarra,
+    ),
+    backgroundColor: Colors.grey[100],
+    body: pages(escala, descricao),
+  );
+  return scaffold;
+}
+ Widget pages(escala, descricao) {
+  return Column(children: <Widget>[
+    Container(
+            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+            padding: const EdgeInsets.all(10),
+            color: Colors.grey[200],
+              child: Text(
+                "" + descricao,
+                style: TextStyle(color: Colors.grey),
+                textAlign: TextAlign.justify,
+              ),
+          ),
+    Container(
       alignment: Alignment.topLeft,
       padding: const EdgeInsets.fromLTRB(14, 20, 12, 5),
       child: Text(
-        "Escala Braden Q",
-        style: TextStyle(color: Colors.grey[600]),
-      ),
+              "COMO O PACIENTE AVALIADO ESTÁ NO MOMENTO?",
+              style: TextStyle(color: Colors.grey[600]),
+            ),
       decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(
@@ -190,26 +160,24 @@ Widget pages(escala){
           ),
         ),
       ),
-    );
-  }
-
-  if(escala == 'braden'){
-    return Container(
-      alignment: Alignment.topLeft,
-      padding: const EdgeInsets.fromLTRB(14, 20, 12, 5),
-      child: Text(
-        "Escala Braden",
-        style: TextStyle(color: Colors.grey[600]),
-      ),
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            width: 1.0,
-            color: Color(0xFFFFDDDDDD),
-          ),
+    ),
+    Container(
+      child: DropdownButton<String>(
+          value: dropdownValue,
+          onChanged: (String newValue) {
+            setState(() {
+              dropdownValue = newValue;
+            });
+          },
+          items: <String>['Baixo', 'Médio', 'Alto']
+              .map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
         ),
       ),
-    );
-  }
+  ]);
   }
 }
