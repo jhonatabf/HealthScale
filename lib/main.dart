@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:health_scale/pages.dart';
 import './scales.dart';
 
 void main() {
@@ -79,6 +80,7 @@ class _HomeState extends State<Home> {
               shrinkWrap: true,
               itemCount: titulos.length,
               itemBuilder: (context, index) {
+                int item = index;
                 return Container(
                   decoration: const BoxDecoration(
                     border: Border(
@@ -92,7 +94,7 @@ class _HomeState extends State<Home> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => escalas(paginas[index], coresincone[index], titulos[index], descricoes[index])),
+                        MaterialPageRoute(builder: (context) => escalas(item)),
                       );
                     },
                     leading: Icon(
@@ -117,30 +119,30 @@ class _HomeState extends State<Home> {
       );
     }
 
-Widget escalas(escala, corBarra, titulo, descricao) {
+Widget escalas(item) {
   var scaffold = Scaffold(
     appBar: AppBar(
       title: Text(
-        "Health Scale - " + titulo,
+        "Health Scale - " + titulos[item],
         style: TextStyle(
           color: Colors.white,
         ),
       ),
-      backgroundColor: corBarra,
+      backgroundColor: coresincone[item],
     ),
     backgroundColor: Colors.grey[100],
-    body: pages(escala, descricao),
+    body: PageScale(item),
   );
   return scaffold;
 }
- Widget pages(escala, descricao) {
+ Widget pages(item) {
   return Column(children: <Widget>[
     Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             padding: const EdgeInsets.all(10),
             color: Colors.grey[200],
               child: Text(
-                "" + descricao,
+                "" + descricoes[item],
                 style: TextStyle(color: Colors.grey),
                 textAlign: TextAlign.justify,
               ),
