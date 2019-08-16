@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-TextStyle tituloSty = TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold);
-TextStyle selecaoSty = TextStyle(color: Colors.grey[600]);
-BoxDecoration corBotaoSty = const BoxDecoration(color: Colors.green);
-Color corLinkSty = Colors.green;
-Color corPrimariaBraden = Colors.orange;
+TextStyle labelEscalasTextSty = TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold);
+TextStyle labelEscalaResultadoSty = TextStyle(color: Colors.grey[600], fontWeight: FontWeight.bold);
+TextStyle selectEscalasTextSty = TextStyle(color: Colors.grey[600]);
+BoxDecoration decoracaoBotaoEscalaBoxSty = const BoxDecoration(color: Colors.green, borderRadius: BorderRadius.all(Radius.circular(20)));
+Color linkEscalasSty = Colors.green;
+Color textoDanger = Colors.red;
+Color textoSuccess = Colors.green[900];

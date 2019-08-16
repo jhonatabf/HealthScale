@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:health_scale/scale/braden.dart';
-import 'package:health_scale/scales.dart';
-import 'package:health_scale/style.dart';
-
 
 class PageScale extends StatefulWidget {
   final int item;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:health_scale/pages.dart';
+import 'package:health_scale/info/braden.dart';
 import './scales.dart';
 
 void main() {
@@ -34,9 +35,6 @@ class _HomeState extends State<Home> {
             ),
           ),
           backgroundColor: Colors.white,
-          //actions: <Widget>[
-          //  IconButton(icon: Icon(Icons.question_answer, color: Colors.grey[400],), onPressed: () {},)
-          //],
         ),
         backgroundColor: Colors.grey[100],
         body: base(),
@@ -135,51 +133,4 @@ Widget escalas(item) {
   );
   return scaffold;
 }
- Widget pages(item) {
-  return Column(children: <Widget>[
-    Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-            padding: const EdgeInsets.all(10),
-            color: Colors.grey[200],
-              child: Text(
-                "" + descricoes[item],
-                style: TextStyle(color: Colors.grey),
-                textAlign: TextAlign.justify,
-              ),
-          ),
-    Container(
-      alignment: Alignment.topLeft,
-      padding: const EdgeInsets.fromLTRB(14, 20, 12, 5),
-      child: Text(
-              "COMO O PACIENTE AVALIADO ESTÁ NO MOMENTO?",
-              style: TextStyle(color: Colors.grey[600]),
-            ),
-      decoration: const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            width: 1.0,
-            color: Color(0xFFFFDDDDDD),
-          ),
-        ),
-      ),
-    ),
-    Container(
-      child: DropdownButton<String>(
-          value: dropdownValue,
-          onChanged: (String newValue) {
-            setState(() {
-              dropdownValue = newValue;
-            });
-          },
-          items: <String>['Baixo', 'Médio', 'Alto']
-              .map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
-        ),
-      ),
-  ]);
-  }
 }
