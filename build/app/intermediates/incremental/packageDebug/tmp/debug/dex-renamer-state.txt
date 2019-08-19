@@ -1,4 +1,4 @@
-#Fri Aug 16 14:27:30 GFT 2019
+#Mon Aug 19 16:48:31 GFT 2019
 base.0=C\:\\Users\\jhonata.reboucas.HSD\\flutter\\workspace\\health_scale\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

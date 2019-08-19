@@ -283,13 +283,6 @@ class _PageState extends State<PageBraden> {
                 const SizedBox(height: 20),
                 FlatButton(
                   onPressed: () {
-                    //showAlertDialog(context);
-                    if (_reacaoDesconforto != null &&
-                        _fatorUmidade != null &&
-                        _atividadeFisica != null &&
-                        _mobilidade != null &&
-                        _nutricao != null &&
-                        _cisalhamento != null) {
                       calcular(
                           _reacaoDesconforto,
                           _fatorUmidade,
@@ -297,10 +290,6 @@ class _PageState extends State<PageBraden> {
                           _mobilidade,
                           _nutricao,
                           _cisalhamento);
-                    } else {
-                      showToast(_toastPreenchimento,
-                          duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
-                    }
                   },
                   textColor: Colors.white,
                   child: Container(
@@ -332,62 +321,72 @@ class _PageState extends State<PageBraden> {
 
   void calcular(
       desconforto, umidade, atividade, mobilidade, nutricao, cisalhamento) {
-    int calculo;
-    Color corResultado;
-    setState(() {
-      calculo = desconforto +
-          umidade +
-          atividade +
-          mobilidade +
-          nutricao +
-          cisalhamento;
-      if (calculo >= 17) {
-        _resultado = "Nulo";
-        corResultado = Colors.green;
-      } else if (calculo >= 15 && calculo <= 16) {
-        _resultado = "Risco Leve";
-        corResultado = Colors.blue;
-      } else if (calculo >= 12 && calculo <= 14) {
-        _resultado = "Risco Moderado";
-        corResultado = Colors.orange;
-      } else if (calculo <= 11) {
-        _resultado = "Risco Alto";
-        corResultado = Colors.red;
-      }
-    });
-    Widget okButton = FlatButton(
-      child: Text(
-        "fechar",
-        style: TextStyle(color: linkEscalasSty),
-      ),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
-    );
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text("Resultado da escala " + titulos[item]),
-      content: Text.rich(
-        TextSpan(text: "O paciente possui um ", children: <TextSpan>[
-          TextSpan(
-              text: _resultado.toString(),
-              style:
-                  TextStyle(color: corResultado, fontWeight: FontWeight.bold)),
-          TextSpan(text: " de desenvolver uma úlcera por pressão"),
-        ]),
-      ),
-      //"O paciente possue um " + _resultado.toString() + " de desenvolver uma úlcera por pressão"),
-      actions: [
-        okButton,
-      ],
-    );
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
+    if (desconforto != null &&
+        umidade != null &&
+        atividade != null &&
+        mobilidade != null &&
+        nutricao != null &&
+        cisalhamento != null) {
+      int calculo;
+      Color corResultado;
+      setState(() {
+        calculo = desconforto +
+            umidade +
+            atividade +
+            mobilidade +
+            nutricao +
+            cisalhamento;
+        if (calculo >= 17) {
+          _resultado = "Nulo";
+          corResultado = Colors.green;
+        } else if (calculo >= 15 && calculo <= 16) {
+          _resultado = "Risco Leve";
+          corResultado = Colors.blue;
+        } else if (calculo >= 12 && calculo <= 14) {
+          _resultado = "Risco Moderado";
+          corResultado = Colors.orange;
+        } else if (calculo <= 11) {
+          _resultado = "Risco Alto";
+          corResultado = Colors.red;
+        }
+      });
+      Widget okButton = FlatButton(
+        child: Text(
+          "fechar",
+          style: TextStyle(color: linkEscalasSty),
+        ),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      );
+      // set up the AlertDialog
+      AlertDialog alert = AlertDialog(
+        title: Text("Resultado da escala " + titulos[item]),
+        content: Text.rich(
+          TextSpan(text: "O paciente possui um ", children: <TextSpan>[
+            TextSpan(
+                text: _resultado.toString(),
+                style: TextStyle(
+                    color: corResultado, fontWeight: FontWeight.bold)),
+            TextSpan(text: " de desenvolver uma úlcera por pressão"),
+          ]),
+        ),
+        //"O paciente possue um " + _resultado.toString() + " de desenvolver uma úlcera por pressão"),
+        actions: [
+          okButton,
+        ],
+      );
+      // show the dialog
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
+    } else {
+      showToast(_toastPreenchimento,
+          duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
+    }
   }
 
 //Variáveis
