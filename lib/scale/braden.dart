@@ -269,41 +269,41 @@ class _PageState extends State<PageBraden> {
                     },
                   ),
                 ),
-                const SizedBox(height: 20),
-                FlatButton(
-                  onPressed: () {
-                    //showAlertDialog(context);
-                    if (_reacaoDesconforto != null &&
-                        _fatorUmidade != null &&
-                        _atividadeFisica != null &&
-                        _mobilidade != null &&
-                        _nutricao != null &&
-                        _cisalhamento != null) {
-                      calcular(
-                          _reacaoDesconforto,
-                          _fatorUmidade,
-                          _atividadeFisica,
-                          _mobilidade,
-                          _nutricao,
-                          _cisalhamento);
-                    } else {
-                      showToast(_toastPreenchimento,
-                          duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
-                    }
-                  },
-                  textColor: Colors.white,
-                  child: Container(
-                    child: Align(
-                      alignment: Alignment.bottomRight,
+                Row(
+                  children: [
+                    Expanded(
+                      child:GestureDetector(
+                        onTap: (){
+                          informacoes();
+                        },
+                        child: Container(
+                      padding: const EdgeInsets.all(10),
                       child: Container(
-                        decoration: decoracaoBotaoEscalaBoxSty,
                         padding: const EdgeInsets.all(10),
-                        //child: new Image.asset('images/png/calculator-solid.png',width:25,height:25),
-                        child: Text(_lbBotaoCalculo,
-                            style: TextStyle(fontSize: 20)),
+                        decoration: botaoOutBraden,
+                        child: Text(_lbBotaoInfo,
+                            style:
+                                TextStyle(fontSize: 20, color: Colors.orange),
+                            textAlign: TextAlign.center),
                       ),
-                    ),
-                  ),
+                    ))),
+                    Expanded(
+                      child:GestureDetector(
+                        onTap: (){
+                          calcular(_reacaoDesconforto, _fatorUmidade, _atividadeFisica,
+                      _mobilidade, _nutricao, _cisalhamento);
+                        },
+                        child: Container(
+                      padding: const EdgeInsets.all(10),
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: botaoBraden,
+                        child: Text(_lbBotaoCalculo,
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                            textAlign: TextAlign.center),
+                      ),
+                    )))
+                  ],
                 ),
               ],
             ),
@@ -321,62 +321,106 @@ class _PageState extends State<PageBraden> {
 
   void calcular(
       desconforto, umidade, atividade, mobilidade, nutricao, cisalhamento) {
-    int calculo;
-    Color corResultado;
-    setState(() {
-      calculo = desconforto +
-          umidade +
-          atividade +
-          mobilidade +
-          nutricao +
-          cisalhamento;
-      if (calculo >= 17) {
-        _resultado = "Nulo";
-        corResultado = Colors.green;
-      } else if (calculo >= 15 && calculo <= 16) {
-        _resultado = "Risco Leve";
-        corResultado = Colors.blue;
-      } else if (calculo >= 12 && calculo <= 14) {
-        _resultado = "Risco Moderado";
-        corResultado = Colors.orange;
-      } else if (calculo <= 11) {
-        _resultado = "Risco Alto";
-        corResultado = Colors.red;
-      }
-    });
+    if (desconforto != null &&
+        umidade != null &&
+        atividade != null &&
+        mobilidade != null &&
+        nutricao != null &&
+        cisalhamento != null) {
+      int calculo;
+
+      Color corResultado;
+
+      setState(() {
+        calculo = desconforto +
+            umidade +
+            atividade +
+            mobilidade +
+            nutricao +
+            cisalhamento;
+
+        if (calculo >= 17) {
+          _resultado = "Nulo";
+
+          corResultado = Colors.green;
+        } else if (calculo >= 15 && calculo <= 16) {
+          _resultado = "Risco Leve";
+
+          corResultado = Colors.blue;
+        } else if (calculo >= 12 && calculo <= 14) {
+          _resultado = "Risco Moderado";
+
+          corResultado = Colors.orange;
+        } else if (calculo <= 11) {
+          _resultado = "Risco Alto";
+
+          corResultado = Colors.red;
+        }
+      });
+
+      Widget okButton = FlatButton(
+        child: Text(
+          "fechar",
+          style: TextStyle(color: linkEscalasSty),
+        ),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      );
+      AlertDialog alert = AlertDialog(
+        title: Text("Resultado da escala " + titulos[item]),
+
+        content: Text.rich(
+          TextSpan(text: "O paciente possui um ", children: <TextSpan>[
+            TextSpan(
+                text: _resultado.toString(),
+                style: TextStyle(
+                    color: corResultado, fontWeight: FontWeight.bold)),
+            TextSpan(text: " de desenvolver uma úlcera por pressão"),
+          ]),
+        ),
+        actions: [
+          okButton,
+        ],
+      );
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
+    } else {
+      showToast(_toastPreenchimento,
+          duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
+    }
+  }
+
+  void informacoes(){
     Widget okButton = FlatButton(
-      child: Text(
-        "fechar",
-        style: TextStyle(color: linkEscalasSty),
-      ),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
-    );
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text("Resultado da escala " + titulos[item]),
-      content: Text.rich(
-        TextSpan(text: "O paciente possui um ", children: <TextSpan>[
-          TextSpan(
-              text: _resultado.toString(),
-              style:
-                  TextStyle(color: corResultado, fontWeight: FontWeight.bold)),
-          TextSpan(text: " de desenvolver uma úlcera por pressão"),
-        ]),
-      ),
-      //"O paciente possue um " + _resultado.toString() + " de desenvolver uma úlcera por pressão"),
-      actions: [
-        okButton,
-      ],
-    );
-    // show the dialog
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
+        child: Text(
+          "fechar",
+          style: TextStyle(color: linkEscalasSty),
+        ),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      );
+      AlertDialog alert = AlertDialog(
+        title: Text("Informacoes sobre a escala " + titulos[item]),
+
+        content: Text(
+          infoBraden
+        ),
+        actions: [
+          okButton,
+        ],
+      );
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
   }
 
 //Variáveis
@@ -391,16 +435,17 @@ class _PageState extends State<PageBraden> {
   int _cisalhamento;
   String _resultado = "";
 
-  
-String _lbDesconforto = "Qual a capacidade de reação significativa ao desconforto?";
-String _lbUmidade = "Qual o nível de exposição da pele a umidade?";
-String _lbAtividade = "Qual o nível de atividade física?";
-String _lbMobilidade = "Como está a mobilidade da pessoa?";
-String _lbNutricao = "Como está a alimentação?";
-String _lbCisalhamento = "Existe problema com o cisalhamento?";
-String _toastPreenchimento = "Primeiro informe todos os campos da avaliação";
-String _lbBotaoCalculo = "Calcular Escala";
-String pngCalculadora = 'images/png/calculator-solid.png';
+  String _lbDesconforto =
+      "Qual a capacidade de reação significativa ao desconforto?";
+  String _lbUmidade = "Qual o nível de exposição da pele a umidade?";
+  String _lbAtividade = "Qual o nível de atividade física?";
+  String _lbMobilidade = "Como está a mobilidade da pessoa?";
+  String _lbNutricao = "Como está a alimentação?";
+  String _lbCisalhamento = "Existe problema com o cisalhamento?";
+  String _toastPreenchimento = "Primeiro informe todos os campos da avaliação";
+  String _lbBotaoInfo = "Informações";
+  String _lbBotaoCalculo = "Calcular Escala";
+  String pngCalculadora = 'images/png/calculator-solid.png';
 
   var reacaoDesconforto = <String>[
     'Completamente limitada',
