@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 final titulos = [
       'Braden',
       //'Braden Q',
-      'ECA (SCP)',
+      //'ECA (SCP)',
       //'Flebite',
       'MEWS',
       //'NRS-2002',
@@ -13,9 +13,9 @@ final titulos = [
     final subtitulos = [
       'Risco para Úlcera por Pressão',
       //'Risco para Úlcera por Pressão Pediátrico',
-      'Sistema de Classificação de Pacientes',
+      //'Sistema de Classificação de Pacientes',
       //'Escala de Classificação de Flebite',
-      'Escore Alerta Precose',
+      'National Early Warning Score',
       //'Protocolo de Risco Nutricional',
       //'Escore Alerta Precose Pediátrico',
       //'Therapeutic Intervention Scoring'
@@ -23,7 +23,7 @@ final titulos = [
     final coresincone = [
       Colors.orange,
       //Colors.red,
-      Colors.teal,
+      //Colors.teal,
       //Colors.brown,
       Colors.cyan,
       //Colors.green,
@@ -33,7 +33,7 @@ final titulos = [
     final paginas = [
       'braden',
       //'bradenq',
-      'SCP',
+      //'SCP',
       //'frebite',
       'mews',
       //'nrs',
@@ -42,6 +42,6 @@ final titulos = [
     ];
     final descricoes = [
       'Escala utilizada para correta prevenção e tratamento de lesões por pressão em hospitais. É bastante utilizado em UTIs por conta da longa esposição do paciente a uma unica posição.',
-      'Identificação e classificação de pacientes em grupos de cuidados ou categorias, e a quantificação destas categorias como uma medida dos esforços de enfermagem requeridos - "GIOVANNETTI (1979)"',
-      'Escala de alerta com finalidade de identificar de forma precoce sinais de deterioração do quadro clínico do paciente através da pontuação de alguns sinais veitais.'
+      //'Identificação e classificação de pacientes em grupos de cuidados ou categorias, e a quantificação destas categorias como uma medida dos esforços de enfermagem requeridos - "GIOVANNETTI (1979)"',
+      'Escala de alerta com finalidade de identificar de forma precoce sinais de deterioração do quadro clínico do paciente através da pontuação de alguns sinais vitais.'
     ];

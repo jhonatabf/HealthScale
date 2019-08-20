@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:health_scale/pages.dart';
-import 'package:health_scale/info/braden.dart';
 import './scales.dart';
 
 void main() {

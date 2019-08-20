@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:health_scale/scale/braden.dart';
+import 'package:health_scale/scale/mews.dart';
 
 class PageScale extends StatefulWidget {
   final int item;
@@ -18,6 +19,10 @@ class _PageState extends State<PageScale> {
     if (item == 0) {
       return Scaffold(
         body: PageBraden(item),
+      );
+    } else if (item == 1) {
+      return Scaffold(
+        body: PageMews(item),
       );
     }
   }

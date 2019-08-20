@@ -4,17 +4,6 @@ import 'package:health_scale/scales.dart';
 import 'package:health_scale/style.dart';
 import 'package:toast/toast.dart';
 
-String _lbDesconforto =
-    "Qual a capacidade de reação significativa ao desconforto?";
-String _lbUmidade = "Qual o nível de exposição da pele a umidade?";
-String _lbAtividade = "Qual o nível de atividade física?";
-String _lbMobilidade = "Como está a mobilidade da pessoa?";
-String _lbNutricao = "Como está a alimentação?";
-String _lbCisalhamento = "Existe problema com o cisalhamento?";
-String _toastPreenchimento = "Primeiro informe todos os campos da avaliação";
-String _lbBotaoCalculo = "Calcular Escala";
-String pngCalculadora = 'images/png/calculator-solid.png';
-
 class PageBraden extends StatefulWidget {
   final int item;
   PageBraden(this.item) : super();
@@ -401,6 +390,18 @@ class _PageState extends State<PageBraden> {
   int _nutricao;
   int _cisalhamento;
   String _resultado = "";
+
+  
+String _lbDesconforto = "Qual a capacidade de reação significativa ao desconforto?";
+String _lbUmidade = "Qual o nível de exposição da pele a umidade?";
+String _lbAtividade = "Qual o nível de atividade física?";
+String _lbMobilidade = "Como está a mobilidade da pessoa?";
+String _lbNutricao = "Como está a alimentação?";
+String _lbCisalhamento = "Existe problema com o cisalhamento?";
+String _toastPreenchimento = "Primeiro informe todos os campos da avaliação";
+String _lbBotaoCalculo = "Calcular Escala";
+String pngCalculadora = 'images/png/calculator-solid.png';
+
   var reacaoDesconforto = <String>[
     'Completamente limitada',
     'Muito limitada',
