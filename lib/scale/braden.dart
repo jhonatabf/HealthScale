@@ -16,7 +16,7 @@ class _PageState extends State<PageBraden> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
+        /* Container(
           margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           padding: const EdgeInsets.all(10),
           color: Colors.grey[200],
@@ -25,7 +25,7 @@ class _PageState extends State<PageBraden> {
             style: TextStyle(color: Colors.grey),
             textAlign: TextAlign.justify,
           ),
-        ),
+        ), */
         Expanded(
           child: new SingleChildScrollView(
             child: Column(
@@ -35,17 +35,18 @@ class _PageState extends State<PageBraden> {
                   padding: const EdgeInsets.fromLTRB(14, 20, 12, 5),
                   child: Text(
                     "PERCEPÇÃO SENSORIAL",
-                    style: TextStyle(color: Colors.grey[600]),
+                    style: labelEscalasTextSty,
                   ),
-                  decoration: const BoxDecoration(
+                  /* decoration: const BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
                         width: 1.0,
                         color: Color(0xFFFFDDDDDD),
                       ),
                     ),
-                  ),
+                  ), */
                 ),
+                Divider(),
                 Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.fromLTRB(14, 14, 12, 0),
@@ -272,37 +273,43 @@ class _PageState extends State<PageBraden> {
                 Row(
                   children: [
                     Expanded(
-                      child:GestureDetector(
-                        onTap: (){
-                          informacoes();
-                        },
-                        child: Container(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: botaoOutBraden,
-                        child: Text(_lbBotaoInfo,
-                            style:
-                                TextStyle(fontSize: 20, color: Colors.orange),
-                            textAlign: TextAlign.center),
-                      ),
-                    ))),
+                        child: GestureDetector(
+                            onTap: () {
+                              informacoes();
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: botaoOut,
+                                child: Text(_lbBotaoInfo,
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.green),
+                                    textAlign: TextAlign.center),
+                              ),
+                            ))),
                     Expanded(
-                      child:GestureDetector(
-                        onTap: (){
-                          calcular(_reacaoDesconforto, _fatorUmidade, _atividadeFisica,
-                      _mobilidade, _nutricao, _cisalhamento);
-                        },
-                        child: Container(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: botaoBraden,
-                        child: Text(_lbBotaoCalculo,
-                            style: TextStyle(fontSize: 20, color: Colors.white),
-                            textAlign: TextAlign.center),
-                      ),
-                    )))
+                        child: GestureDetector(
+                            onTap: () {
+                              calcular(
+                                  _reacaoDesconforto,
+                                  _fatorUmidade,
+                                  _atividadeFisica,
+                                  _mobilidade,
+                                  _nutricao,
+                                  _cisalhamento);
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: botao,
+                                child: Text(_lbBotaoCalculo,
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                    textAlign: TextAlign.center),
+                              ),
+                            )))
                   ],
                 ),
               ],
@@ -340,20 +347,20 @@ class _PageState extends State<PageBraden> {
             cisalhamento;
 
         if (calculo >= 17) {
-          _resultado = "Nulo";
+          _resultado = "Risco Nulo";
 
           corResultado = Colors.green;
         } else if (calculo >= 15 && calculo <= 16) {
           _resultado = "Risco Leve";
-
           corResultado = Colors.blue;
         } else if (calculo >= 12 && calculo <= 14) {
           _resultado = "Risco Moderado";
-
           corResultado = Colors.orange;
-        } else if (calculo <= 11) {
+        } else if (calculo >= 10 && calculo <= 11) {
           _resultado = "Risco Alto";
-
+          corResultado = Colors.red[300];
+        } else if (calculo <= 9) {
+          _resultado = "Risco Muito Alto";
           corResultado = Colors.red;
         }
       });
@@ -369,9 +376,12 @@ class _PageState extends State<PageBraden> {
       );
       AlertDialog alert = AlertDialog(
         title: Text("Resultado da escala " + titulos[item]),
-
         content: Text.rich(
-          TextSpan(text: "O paciente possui um ", children: <TextSpan>[
+          TextSpan(text: "Pontos: ", children: <TextSpan>[
+            TextSpan(
+                text: calculo.toString() + "\n\n",
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            TextSpan(text: "O paciente possui um "),
             TextSpan(
                 text: _resultado.toString(),
                 style: TextStyle(
@@ -395,32 +405,29 @@ class _PageState extends State<PageBraden> {
     }
   }
 
-  void informacoes(){
+  void informacoes() {
     Widget okButton = FlatButton(
-        child: Text(
-          "fechar",
-          style: TextStyle(color: linkEscalasSty),
-        ),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      );
-      AlertDialog alert = AlertDialog(
-        title: Text("Informacoes sobre a escala " + titulos[item]),
-
-        content: Text(
-          infoBraden
-        ),
-        actions: [
-          okButton,
-        ],
-      );
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return alert;
-        },
-      );
+      child: Text(
+        "fechar",
+        style: TextStyle(color: linkEscalasSty),
+      ),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+    AlertDialog alert = AlertDialog(
+      title: Text("Informacoes sobre a escala " + titulos[item]),
+      content: Text(infoBraden),
+      actions: [
+        okButton,
+      ],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 
 //Variáveis

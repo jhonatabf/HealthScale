@@ -19,7 +19,7 @@ class _PageState extends State<PageMews> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Container(
+        /* Container(
           margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           padding: const EdgeInsets.all(10),
           color: Colors.grey[200],
@@ -28,7 +28,7 @@ class _PageState extends State<PageMews> {
             style: TextStyle(color: Colors.grey),
             textAlign: TextAlign.justify,
           ),
-        ),
+        ), */
         Expanded(
           child: new SingleChildScrollView(
             child: Column(children: <Widget>[
@@ -37,17 +37,18 @@ class _PageState extends State<PageMews> {
                 padding: const EdgeInsets.fromLTRB(14, 20, 12, 5),
                 child: Text(
                   "PARÂMETROS FISIOLÓGICOS",
-                  style: TextStyle(color: Colors.grey[600]),
+                  style: labelEscalasTextSty,
                 ),
-                decoration: const BoxDecoration(
+                /* decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(
                       width: 1.0,
                       color: Color(0xFFFFDDDDDD),
                     ),
                   ),
-                ),
+                ), */
               ),
+              Divider(),
               Container(
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.fromLTRB(14, 14, 12, 0),
@@ -325,10 +326,10 @@ class _PageState extends State<PageMews> {
                       padding: const EdgeInsets.all(10),
                       child: Container(
                         padding: const EdgeInsets.all(10),
-                        decoration: botaoOutMews,
+                        decoration: botaoOut,
                         child: Text(_lbBotaoInfo,
                             style:
-                                TextStyle(fontSize: 20, color: Colors.cyan),
+                                TextStyle(fontSize: 20, color: Colors.green),
                             textAlign: TextAlign.center),
                       ),
                     ))),
@@ -341,7 +342,7 @@ class _PageState extends State<PageMews> {
                       padding: const EdgeInsets.all(10),
                       child: Container(
                         padding: const EdgeInsets.all(10),
-                        decoration: botaoMews,
+                        decoration: botao,
                         child: Text(_lbBotaoCalculo,
                             style: TextStyle(fontSize: 20, color: Colors.white),
                             textAlign: TextAlign.center),
@@ -397,7 +398,7 @@ class _PageState extends State<PageMews> {
           corResultado = Colors.green;
         } else if ((calculo >= 1 && calculo <= 4) &&  _alerta != 1) {
           _resultado = "No mínimo a cada 4-6 horas";
-          _resposta = "Enfermeiro(a) que deve avaliar o paciente";
+          _resposta = "Enfermeiro(a) deve avaliar o paciente";
 
           corResultado = Colors.blue;
         } else if ((calculo >= 5 && calculo <= 6) || _alerta == 1) {
@@ -405,7 +406,7 @@ class _PageState extends State<PageMews> {
           _resposta = "Enfermeiro(a) deve informar com urgência a equipe médica";
 
           corResultado = Colors.orange;
-        } else if (calculo <= 7) {
+        } else if (calculo >= 7) {
           _resultado = "Monitorizacao contínua sempre que possível";
           _resposta = "Enfermeiro(a) deve informar urgentimente a equipe médica para avaliação; A equipe médica deve informar a equipe da UTI; Considere a tranferência para a UTI";
 
