@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="C:\Users\jhonata.reboucas.HSD\flutter\workspace\HealthScale\images\png\appIcon.png"
+   inkscape:export-xdpi="45.405407"
+   inkscape:export-ydpi="45.405407"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="371.18108"
+     inkscape:cy="580.8529"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="86.556546,153.26935"
+       orientation="1,0"
+       id="guide4523"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="75.398535,190.49074"
+       orientation="0,1"
+       id="guide4525"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       id="path3680"
+       cx="90.336304"
+       cy="137.87202"
+       r="69.925591"
+       style="stroke-width:0.26458332;fill:#008000"
+       inkscape:export-filename="C:\Users\jhonata.reboucas.HSD\flutter\workspace\HealthScale\images\png\path3680.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:2.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.57022,173.15575 c 12.98597,-8.28811 10.16156,-27.15622 -4.80348,-34.5288 -13.208253,-6.5071 -20.284152,-5.10379 -21.445243,-17.63594 -0.692589,-7.4754 4.297817,-12.71798 14.106493,-14.20127 8.8409,-1.33695 17.82372,4.24716 17.82372,4.24716 l -0.0317,11.51847 c 0,0 -3.22358,-5.47908 -14.00403,-7.05745 -19.659454,-2.87834 -24.501524,20.1007 -8.518284,25.76642 20.266664,9.05427 16.443874,17.59603 12.872594,21.31349 -2.63164,2.73936 -9.01164,2.75782 -12.075998,-1.99359 -3.602389,-5.58567 -5.285641,-17.35549 -14.507111,-18.72759 -9.60748,-1.10724 -16.985029,7.23504 -16.985029,7.23504 l 0.144137,-42.66442 8.252248,0.082 -0.08453,69.48997 -8.067965,0.0759 c 0,0 -0.251443,-14.96035 -0.143094,-15.21171 0,0 5.875515,-8.23979 13.370205,-7.42679 8.235671,1.00092 8.242735,10.7236 12.59258,15.67105 5.794638,6.59073 14.295587,8.40641 21.504487,4.04806 z"
+       id="path4495"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csssccscssccccccscsc"
+       inkscape:export-filename="C:\Users\jhonata.reboucas.HSD\flutter\workspace\HealthScale\images\png\path4495.png"
+       inkscape:export-xdpi="45"
+       inkscape:export-ydpi="45" />
+  </g>
+</svg>
