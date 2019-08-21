@@ -1,4 +1,5 @@
 com.example.health_scale
 drawable launch_background
 mipmap ic_launcher
+mipmap launcher_icon
 style LaunchTheme

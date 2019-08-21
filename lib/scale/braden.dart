@@ -117,7 +117,7 @@ class _PageState extends State<PageBraden> {
                     onChanged: (value) {
                       setState(() {
                         _fatorUmidade = fatorUmidade.indexOf(value);
-                        print(_fatorUmidade);
+                        //print(_fatorUmidade);
                       });
                     },
                   ),
@@ -155,7 +155,7 @@ class _PageState extends State<PageBraden> {
                     onChanged: (value) {
                       setState(() {
                         _atividadeFisica = atividadeFisica.indexOf(value);
-                        print(_atividadeFisica);
+                        //print(_atividadeFisica);
                       });
                     },
                   ),
@@ -191,7 +191,7 @@ class _PageState extends State<PageBraden> {
                     onChanged: (value) {
                       setState(() {
                         _mobilidade = mobilidade.indexOf(value);
-                        print(_mobilidade);
+                        //print(_mobilidade);
                       });
                     },
                   ),
@@ -227,7 +227,7 @@ class _PageState extends State<PageBraden> {
                     onChanged: (value) {
                       setState(() {
                         _nutricao = nutricao.indexOf(value);
-                        print(_nutricao);
+                        //print(_nutricao);
                       });
                     },
                   ),
@@ -265,7 +265,7 @@ class _PageState extends State<PageBraden> {
                     onChanged: (value) {
                       setState(() {
                         _cisalhamento = cisalhamento.indexOf(value);
-                        print(_cisalhamento);
+                        //print(_cisalhamento);
                       });
                     },
                   ),
@@ -339,12 +339,12 @@ class _PageState extends State<PageBraden> {
       Color corResultado;
 
       setState(() {
-        calculo = desconforto +
-            umidade +
-            atividade +
-            mobilidade +
-            nutricao +
-            cisalhamento;
+        calculo = (desconforto +1) +
+            (umidade +1) +
+            (atividade +1) +
+            (mobilidade +1) +
+            (nutricao +1) +
+            (cisalhamento +1);
 
         if (calculo >= 17) {
           _resultado = "Risco Nulo";

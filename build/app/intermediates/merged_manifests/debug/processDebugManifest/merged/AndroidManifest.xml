@@ -22,7 +22,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/launcher_icon"
         android:label="health_scale" >
         <activity
             android:name="com.example.health_scale.MainActivity"

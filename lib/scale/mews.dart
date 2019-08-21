@@ -83,7 +83,7 @@ class _PageState extends State<PageMews> {
                     setState(() {
                       _frequenciaRespiratoria =
                           frequenciaRespiratoria.indexOf(value);
-                          print(_frequenciaRespiratoria);
+                          //print(_frequenciaRespiratoria);
                     });
                   },
                 ),
@@ -121,7 +121,7 @@ class _PageState extends State<PageMews> {
                   onChanged: (value) {
                     setState(() {
                       _saturacaoOxigenio = saturacaoOxigenio.indexOf(value);
-                      print(_saturacaoOxigenio);
+                      //print(_saturacaoOxigenio);
                     });
                   },
                 ),
@@ -158,7 +158,7 @@ class _PageState extends State<PageMews> {
                   onChanged: (value) {
                     setState(() {
                       _temperatura = temperatura.indexOf(value);
-                      print(_temperatura);
+                      //print(_temperatura);
                     });
                   },
                 ),
@@ -197,7 +197,7 @@ class _PageState extends State<PageMews> {
                     setState(() {
                       _oxigencioSuplementar =
                           oxigencioSuplementar.indexOf(value);
-                          print(_oxigencioSuplementar);
+                          //print(_oxigencioSuplementar);
                     });
                   },
                 ),
@@ -235,7 +235,7 @@ class _PageState extends State<PageMews> {
                   onChanged: (value) {
                     setState(() {
                       _nivelConsciencia = nivelConsciencia.indexOf(value);
-                      print(_nivelConsciencia);
+                      //print(_nivelConsciencia);
                     });
                   },
                 ),
@@ -273,7 +273,7 @@ class _PageState extends State<PageMews> {
                   onChanged: (value) {
                     setState(() {
                       _frequenciaCardiaca = frequenciaCardiaca.indexOf(value);
-                     print(_frequenciaCardiaca);
+                     //print(_frequenciaCardiaca);
                     });
                   },
                 ),
@@ -311,7 +311,7 @@ class _PageState extends State<PageMews> {
                   onChanged: (value) {
                     setState(() {
                       _pressaoSistolica = pressaoSistolica.indexOf(value);
-                      print(_pressaoSistolica);
+                      //print(_pressaoSistolica);
                     });
                   },
                 ),
@@ -401,7 +401,7 @@ class _PageState extends State<PageMews> {
           _resposta = "Enfermeiro(a) deve avaliar o paciente";
 
           corResultado = Colors.blue;
-        } else if ((calculo >= 5 && calculo <= 6) || _alerta == 1) {
+        } else if (((calculo >= 0 && calculo <= 6) && _alerta == 1) || (calculo >= 5 && calculo <= 6)) {
           _resultado = "Aumentar a frequência para no mínimo a cada hora";
           _resposta = "Enfermeiro(a) deve informar com urgência a equipe médica";
 
