@@ -1,4 +1,4 @@
-#Wed Aug 21 02:04:17 BRT 2019
-base.0=C\:\\Users\\jhona\\flutter\\workspace\\HealthScale\\build\\app\\intermediates\\transforms\\dexMerger\\release\\0
+#Thu Aug 22 15:47:13 GFT 2019
+base.0=C\:\\Users\\jhonata.reboucas.HSD\\flutter\\workspace\\HealthScale\\build\\app\\intermediates\\transforms\\dexMerger\\release\\0
 path.0=classes.dex
 renamed.0=classes.dex

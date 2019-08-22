@@ -21,6 +21,7 @@ void main() {
 
   runApp(MaterialApp(
     title: "Health Scale",
+    debugShowCheckedModeBanner: false,
     home: Home(),
   ));
 }

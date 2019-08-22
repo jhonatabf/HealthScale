@@ -1,0 +1,6 @@
+# Referenced at C:\Users\jhonata.reboucas.HSD\flutter\workspace\HealthScale\build\app\intermediates\merged_manifests\release\processReleaseManifest\merged\AndroidManifest.xml:24
+-keep class com.example.health_scale.MainActivity { <init>(); }
+# Referenced at C:\Users\jhonata.reboucas.HSD\flutter\workspace\HealthScale\build\app\intermediates\merged_manifests\release\processReleaseManifest\merged\AndroidManifest.xml:20
+-keep class io.flutter.app.FlutterApplication { <init>(); }
+# Referenced at C:\Users\jhonata.reboucas.HSD\flutter\workspace\HealthScale\build\app\intermediates\merged_manifests\release\processReleaseManifest\merged\AndroidManifest.xml:48
+-keep class io.flutter.plugins.urllauncher.WebViewActivity { <init>(); }
